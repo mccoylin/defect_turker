@@ -1,4 +1,4 @@
-defect_types = ['open', 'short', 'mousebite', 'spur', 'pin hole', 'spurious copper']
+defect_types = ['open', 'short', 'mousebite', 'spur', 'pin hole', 'spurious copper', 'ignore']
 az.call_once_satisfied({
     "condition": "typeof(az.hold_value.extracted_defects_images) !== 'undefined' && az.check_exists('my_layout', 1)",
     "function": function() {
@@ -29,6 +29,11 @@ az.call_multiple({
             "border": "1px solid white",
             "outline": 0
         })
+        if(defect_types[index] == 'ignore') {
+        az.style_button("vote_button", az.last_class_instance('vote_button'), {
+            "background" : "orangered"
+        })
+        }
     }
 })
 az.add_html("my_sections", 3, {
@@ -72,6 +77,9 @@ az.all_add_event("vote_button", {
             }
             if (az.get_target_instance(this_id) === 6) {
                 az.hold_value.turk_choice = defect_types[5]
+            }
+            if (az.get_target_instance(this_id) === 7) {
+                az.hold_value.turk_choice = defect_types[6]
             }
             file_paths.push(az.hold_value.filename)
             turks.push(az.hold_value.turk_choice)

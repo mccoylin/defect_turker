@@ -104,6 +104,7 @@ az.call_once_satisfied({
                     "width": "700px",
                     "height": "auto"
                 })
+                /*
                 az.add_layout("show_legend_modal_content", 1, {
                     "this_class": "hold_all_legend",
                     "row_class": "hold_all_legend_rows",
@@ -132,14 +133,16 @@ az.call_once_satisfied({
                     "align": "center",
                     "border": 0
                 })
-                az.add_image("hold_all_legend_cells", 2, {
+                */
+                az.add_image("show_legend_modal_content", 1, {
                     "this_class": "legend_img",
-                    "image_path": "img/defect_legend.png"
+                    "image_path": "img/defect_legend2.png"
                 })
                 az.style_image("legend_img", 1, {
                     "align": "center",
                     "width": "100%"
                 })
+                /*
                 az.call_multiple({
                     "iterations": defects_big_list.length,
                     "function": function(elem, index) {
@@ -158,6 +161,7 @@ az.call_once_satisfied({
                         }
                     }
                 })
+
                 az.add_text("show_legend_modal_content", 1, {
                     "this_class" : "book_reference",
                     "text" : "reference"
@@ -174,6 +178,7 @@ az.call_once_satisfied({
                         az.navigate_to("https://bit.ly/2poVyld", "new_tab")
                     }
                 })
+                */
             }
         })
         az.add_icon("hold_icons_cells", 2, {
