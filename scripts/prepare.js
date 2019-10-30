@@ -104,36 +104,6 @@ az.call_once_satisfied({
                     "width": "700px",
                     "height": "auto"
                 })
-                /*
-                az.add_layout("show_legend_modal_content", 1, {
-                    "this_class": "hold_all_legend",
-                    "row_class": "hold_all_legend_rows",
-                    "cell_class": "hold_all_legend_cells",
-                    "number_of_rows": 1,
-                    "number_of_columns": 2
-                })
-                az.style_layout("hold_all_legend", 1, {
-                    "width": "100%",
-                    "height": "400px",
-                    "align": "center",
-                    "column_widths": ['30%', '70%'],
-                    "border": 0
-                })
-                defects_big_list = ['breakout', 'pin hole', 'open', 'under-etch', 'mousebite', 'missing conductor', 'spur', 'short', 'wrong hole', 'conductor too close', 'spurious copper', 'excessive short', 'missing hole', 'over-etch']
-                az.add_layout("hold_all_legend_cells", 1, {
-                    "this_class": "legend_text_layout",
-                    "row_class": "legend_text_layout_rows",
-                    "cell_class": "legend_text_layout_cells",
-                    "number_of_rows": defects_big_list.length,
-                    "number_of_columns": 2
-                })
-                az.style_layout("legend_text_layout", 1, {
-                    "width": "auto",
-                    "height": "auto",
-                    "align": "center",
-                    "border": 0
-                })
-                */
                 az.add_image("show_legend_modal_content", 1, {
                     "this_class": "legend_img",
                     "image_path": "img/defect_legend2.png"
@@ -142,45 +112,96 @@ az.call_once_satisfied({
                     "align": "center",
                     "width": "100%"
                 })
-                /*
-                az.call_multiple({
-                    "iterations": defects_big_list.length,
-                    "function": function(elem, index) {
-                        az.add_text("legend_text_layout_cells", (index * 2) + 1, {
-                            "this_class": "legend_fill",
-                            "text": index + 1
-                        })
-                        az.add_text("legend_text_layout_cells", (index * 2) + 2, {
-                            "this_class": "legend_fill_word",
-                            "text": defects_big_list[index]
-                        })
-                        if(defect_types.includes(defects_big_list[index])) {
-                             az.style_text("legend_fill_word", index + 1, {
-                                 "color" : "orangered"
-                             })
-                        }
-                    }
-                })
-
-                az.add_text("show_legend_modal_content", 1, {
-                    "this_class" : "book_reference",
-                    "text" : "reference"
-                })
-                az.style_text("book_reference", 1, {
-                    "color" : "blue",
-                    "cursor" : "pointer",
-                    "align" : "center",
-                    "margin-top" : "-30px"
-                })
-                az.add_event("book_reference", 1, {
-                    "type" : "click",
-                    "function" : function() {
-                        az.navigate_to("https://bit.ly/2poVyld", "new_tab")
-                    }
-                })
-                */
             }
         })
+        /*
+        az.add_icon("hold_icons_cells", 2, {
+            "this_class": "my_icon_data",
+            "icon_class": "fa-database"
+        })
+        az.style_icon("my_icon_data", 1, {
+            "color": "white",
+            "font-size": "32px",
+            "cursor": "pointer",
+            "margin": "8px"
+        })
+        az.add_event("my_icon_data", 1, {
+            "type": "click",
+            "function": function() {
+                az.add_modal({
+                    "this_class": "show_dataset",
+                    "content_class": "show_dataset_content"
+                })
+                az.style_modal("show_dataset", 1, {
+                    "width": "700px",
+                    "height": "auto",
+                    "background": "whtiesmoke",
+                    "max-height": "500px"
+                })
+                az.add_layout("show_dataset_content", 1, {
+                    "this_class": "header_layout",
+                    "row_class": "header_layout_rows",
+                    "cell_class": "header_layout_cells",
+                    "number_of_rows": 1,
+                    "number_of_columns": 2
+                })
+                az.style_layout("header_layout", 1, {
+                    "width": "700px",
+                    "height": "auto",
+                    "align": "center",
+                    "background": "whitesmoke",
+                    "border": 0
+                })
+                az.add_text("header_layout_cells", 1, {
+                    "this_class": "header",
+                    "text": "IMAGE"
+                })
+                az.add_text("header_layout_cells", 2, {
+                    "this_class": "header",
+                    "text": "LABEL"
+                })
+                az.all_style_text("header", {
+                    "align": "center",
+                    "color": "rgb(233, 130, 94)",
+                    "font-size": "20px",
+                    "text-shadow": "1px 1px 1px black"
+                })
+                az.add_layout("show_dataset_content", 1, {
+                    "this_class": "decisions_layout",
+                    "row_class": "decisions_layout_rows",
+                    "cell_class": "decisions_layout_cells",
+                    "number_of_rows": file_paths.length,
+                    "number_of_columns": 2
+                })
+                az.style_layout("decisions_layout", 1, {
+                    "width": "700px",
+                    "height": "auto",
+                    "align": "center",
+                    "background": "whitesmoke",
+                    "border": 1
+                })
+                // fill rows
+                az.call_multiple({
+                    "iterations": file_paths.length,
+                    "function": function(elem, index) {
+                        az.add_text("decisions_layout_cells", (index * 2) + 1, {
+                            "this_class": "table_data",
+                            "text": file_paths[index]
+                        })
+                        az.add_text("decisions_layout_cells", (index * 2) + 2, {
+                            "this_class": "table_data",
+                            "text": turks[index]
+                        })
+                        az.all_style_text("table_data", {
+                            "align": "center",
+                            "color": "black",
+                            "font-size": "20px"
+                        })
+                    }
+                })
+            }
+        })
+        */
         az.add_icon("hold_icons_cells", 2, {
             "this_class": "my_icon",
             "icon_class": "fa-download"
@@ -194,53 +215,30 @@ az.call_once_satisfied({
         az.add_event("my_icon", 1, {
             "type": "click",
             "function": function() {
+                final_arr = remove_ignored()
                 az.download_object_as_csv({
-                    "data": az.hold_value.combo_for_csv,
+                    "data": final_arr,
                     "header": ['image_path', 'label']
                 })
             }
         })
-/*
-        az.add_tooltip("my_icon_legend", 1, {
-            "this_class": "tip_1",
-            "text": "DEFECT<br>LEGEND"
+        az.add_layout("my_sections", 2, {
+            "this_class": "my_layout",
+            "row_class": "my_layout_rows",
+            "cell_class": "my_layout_cells",
+            "number_of_rows": 1,
+            "number_of_columns": 2
         })
-        az.add_tooltip("my_icon", 1, {
-            "this_class": "tip_2",
-            "text": "DOWNLOAD<br>DATA"
+        az.style_layout("my_layout", 1, {
+            "width": "700px",
+            "height": "250px",
+            "max-height": "500px",
+            "align": "center",
+            "border": 0
         })
-        az.style_tooltip("tip_1", 1, {
-            "background" : "black",
-            "margin-top" : "-20px",
-            "margin-left" : "-20px",
-            "font-family" : "arial",
-            "width" : "auto"
+        az.all_style_layout("my_layout_cells", {
+            "height": "auto",
+            "halign": "center"
         })
-        az.style_tooltip("tip_2", 1, {
-            "background" : "black",
-            "margin-top" : "-20px",
-            "margin-left" : "-20px",
-            "font-family" : "arial",
-            "width" : "auto"
-        })
-        */
     }
-})
-az.add_layout("my_sections", 2, {
-    "this_class": "my_layout",
-    "row_class": "my_layout_rows",
-    "cell_class": "my_layout_cells",
-    "number_of_rows": 1,
-    "number_of_columns": 2
-})
-az.style_layout("my_layout", 1, {
-    "width": "700px",
-    "height": "250px",
-    "max-height": "500px",
-    "align": "center",
-    "border": 0
-})
-az.all_style_layout("my_layout_cells", {
-    "height": "auto",
-    "halign": "center"
 })
