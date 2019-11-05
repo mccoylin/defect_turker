@@ -1,4 +1,4 @@
-defect_types = ['open', 'short', 'mousebite', 'spur', 'pin hole', 'spurious copper', 'ignore']
+defect_types = ['open', 'short', 'mousebite', 'spur', 'pin hole', 'spurious copper', 'NOT']
 az.call_once_satisfied({
     "condition": "typeof(az.hold_value.extracted_defects_images) !== 'undefined' && az.check_exists('my_layout', 1)",
     "function": function() {
@@ -27,7 +27,7 @@ az.call_once_satisfied({
                     "border": "1px solid white",
                     "outline": 0
                 })
-                if (defect_types[index] == 'ignore') {
+                if (defect_types[index] == 'NOT') {
                     az.style_button("vote_button", az.last_class_instance('vote_button'), {
                         "background": "orangered"
                     })
