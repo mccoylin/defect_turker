@@ -72,7 +72,7 @@ az.add_layout("banner_layout_cells", 3, {
     "row_class": "hold_icons_rows",
     "cell_class": "hold_icons_cells",
     "number_of_rows": 1,
-    "number_of_columns": 3
+    "number_of_columns": 2
 })
 az.style_layout("hold_icons", 1, {
     "width": "auto",
@@ -106,7 +106,7 @@ az.call_once_satisfied({
                 })
                 az.add_image("show_legend_modal_content", 1, {
                     "this_class": "legend_img",
-                    "image_path": "img/defect_legend2.png"
+                    "image_path": "test_template.png"
                 })
                 az.style_image("legend_img", 1, {
                     "align": "center",

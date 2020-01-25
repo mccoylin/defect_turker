@@ -8,7 +8,6 @@ function remove_ignored() {
     return (final_arr)
 }
 
-
 function chunk_array(arr, split_percentage) {
     res = []
     indexToSplit = Math.round(arr.length * split_percentage)

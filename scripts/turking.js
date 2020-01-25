@@ -90,26 +90,16 @@ az.call_once_satisfied({
                         "this_class": "label_count",
                         "text": "# images labelled: " + click_cnt
                     })
-                    final_arr = remove_ignored()
-                    az.add_text("hold_label_count", 1, {
-                        "this_class": "label_count",
-                        "text": "# images labelled - ignored: " + final_arr.length
+                    az.style_word("label_count", 1, {
+                        "this_class": "color_word",
+                        "word": click_cnt,
+                        "color": "rgb(233, 130, 94)"
                     })
                     az.all_style_text("label_count", {
                         "color": "white",
                         "font-size": "20px",
                         "align": "center",
                         "margin-bottom": "10px"
-                    })
-                    az.style_word("label_count", 1, {
-                        "this_class": "color_word",
-                        "word": click_cnt,
-                        "color": "rgb(233, 130, 94)"
-                    })
-                    az.style_word("label_count", 2, {
-                        "this_class": "color_word_no_ignored",
-                        "word": final_arr.length,
-                        "color": "rgb(233, 130, 94)"
                     })
                 } else {
                     alert('no more images to turk')
