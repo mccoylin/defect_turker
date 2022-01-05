@@ -130,7 +130,7 @@ az.call_once_satisfied({
                 if (az.hold_value.combo_for_csv.length !== 0) {
                     az.download_object_as_csv({
                         "data": az.hold_value.combo_for_csv,
-                        "header": ['name', 'label'],
+                        "header": ['name', 'LABEL'],
                         "filename": "image_labels.csv"
                     })
                 } else {
